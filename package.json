@@ -1,0 +1,19 @@
+{
+  "name": "simple-gulp",
+  "version": "1.0.0",
+  "description": "nomad coder gulp example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoz0312/simple_gulp.git"
+  },
+  "author": "zoz0312(AJu)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zoz0312/simple_gulp/issues"
+  },
+  "homepage": "https://github.com/zoz0312/simple_gulp#readme"
+}
