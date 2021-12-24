@@ -1,8 +1,17 @@
 import gulp from 'gulp';
 import gulpPug from 'gulp-pug';
 import gulpImage from 'gulp-image';
+import gulpSass from 'gulp-sass';
+import gulpAutoPrefixer from 'gulp-autoprefixer';
+import gulpMinifyCss from 'gulp-csso';
 import del from 'delete';
 import ws from 'gulp-webserver';
+import defaultSass from 'sass';
+import nodeSass from 'node-sass';
+
+const sass = gulpSass(defaultSass);
+
+sass.compiler = nodeSass;
 
 const routes = {
   pug: {
@@ -13,6 +22,11 @@ const routes = {
   img: {
     src: 'src/img/*',
     dest: 'build/img',
+  },
+  scss: {
+    watch: 'src/scss/**/*.scss',
+    src: 'src/scss/styles.scss',
+    dest: 'build/css',
   }
 }
 
@@ -27,23 +41,32 @@ const clean = () => del(['build/']);
 
 const webserver = () => gulp.src('build').pipe(ws({
   host: 'localhost',
-  port: '8080',
+  // port: '8080',
   livereload: true,
   // open: true,
 }));
 
-const watch = () => {
-  gulp.watch(routes.pug.watch, pug);
-}
 
 const img =() => gulp
   .src(routes.img.src)
   .pipe(gulpImage())
   .pipe(gulp.dest(routes.img.dest));
 
+const styles = () => gulp
+  .src(routes.scss.src)
+  .pipe(sass().on('error', sass.logError))
+  .pipe(gulpAutoPrefixer())
+  .pipe(gulpMinifyCss())
+  .pipe(gulp.dest(routes.scss.dest))
+
+const watch = () => {
+  gulp.watch(routes.pug.watch, pug);
+  gulp.watch(routes.scss.watch, styles);
+}
+
 const prepare = gulp.series([clean, img]);
 
-const assets = gulp.series([pug]);
+const assets = gulp.series([pug, styles]);
 
 const postDev = gulp.parallel([webserver, watch]);
 
