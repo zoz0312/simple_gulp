@@ -25,7 +25,8 @@
     "@babel/register": "^7.16.5",
     "gulp": "^4.0.2",
     "gulp-pug": "^5.0.0",
-    "gulp-webserver": "^0.9.1"
+    "gulp-webserver": "^0.9.1",
+    "gulp-image": "^5.1.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.16.5",
