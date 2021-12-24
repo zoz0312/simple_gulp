@@ -24,9 +24,11 @@
     "@babel/preset-env": "^7.16.5",
     "@babel/register": "^7.16.5",
     "gulp": "^4.0.2",
-    "gulp-pug": "^5.0.0"
+    "gulp-pug": "^5.0.0",
+    "gulp-webserver": "^0.9.1"
   },
   "dependencies": {
-    "@babel/runtime": "^7.16.5"
+    "@babel/runtime": "^7.16.5",
+    "delete": "^1.1.0"
   }
 }
