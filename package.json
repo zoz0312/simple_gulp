@@ -26,6 +26,7 @@
     "delete": "^1.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
+    "gulp-bro": "^2.0.0",
     "gulp-csso": "^4.0.1",
     "gulp-image": "^5.1.0",
     "gulp-pug": "^5.0.0",
@@ -35,7 +36,9 @@
     "sass": "^1.45.1"
   },
   "dependencies": {
-    "@babel/runtime": "^7.16.5"
+    "@babel/runtime": "^7.16.5",
+    "babelify": "^10.0.0",
+    "uglifyify": "^5.0.2"
   },
   "browserslist": [
     "last 2 version"
